@@ -1,8 +1,7 @@
-###  DATE: 
-
-###  NAME: 
-###  ROLL NO :
-###  DEPARTMENT: 
+###  DATE:24-03-2024
+###  NAME: DIVYA DHARSHINI R
+###  ROLL NO : 212223040042
+###  DEPARTMENT: CSE
 
 
 # EXPERIMENT NO 05 INTERFACING ANALOG OUTPUT SERVO MOTOR WITH ARDUINO
@@ -45,15 +44,6 @@ An external controller (such as the Arduino) tells the servo where to go with a 
 
 ### Figure-03 SERVO MOTOR OVERVIEW 
 
- 
-
-
- 
-
-
-
-
-
 CIRCUIT DIAGRAM
  
  
@@ -74,15 +64,69 @@ CIRCUIT DIAGRAM
 
 
 ### PROGRAM :
+``` 
+#include<Servo.h>
+Servo sr1;
+int pos=0;
+int red= 9;
+int green=8;
+
+void setup()
+{
+  sr1.attach(6);
+  Serial.begin(9600);
+  pinMode(red,OUTPUT);
+  pinMode(green,OUTPUT);
+}
+void loop()
+{
+  for(pos=0;pos<=180;pos+=5)
+  {
+    sr1.write(pos);
+  delay(200);
+    Serial.println(pos);
+    if(pos>120)
+  {
+    digitalWrite(red,HIGH);
+      delay(200);
+    digitalWrite(red,LOW);
+    delay(200);
+  }
+  }
+   for(pos=0;pos>=180;pos-=5)
+   {
+    sr1.write(pos);
+    delay(1000);
+  Serial.println(pos);
+   if(pos<=120)
+  {
+    digitalWrite(green,HIGH);
+      delay(200);
+    digitalWrite(green,LOW);
+    delay(200);
+  }
+   }
  
+}
+```
+# GRAPH DIAGRAM :
+
+![image](https://github.com/DIVYADHARSHINI-08/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/145210448/11bddf8a-2f5b-41da-a143-d05a96bf165f)
+
+# STIMULATION OUTPUT :
+
+# OFF CONDITION :
+
+![image](https://github.com/DIVYADHARSHINI-08/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/145210448/fc6401b7-d25b-4925-a879-7ff7932d6bd7)
+
+# ON CONDITION :
 
 
+![image](https://github.com/DIVYADHARSHINI-08/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/145210448/c2608c3c-b2c6-4258-9ef2-f9a8dbdbf50c)
 
+# SCHEMATIC REPRESENTATION :
 
-
-
-
-
+![SS](https://github.com/DIVYADHARSHINI-08/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/145210448/cfb8c26a-f197-4a4f-9073-e60695414255)
 
 ### RESULTS: 
 Arduino uno interfacing with servo motor is learned and angular position is controlled .
